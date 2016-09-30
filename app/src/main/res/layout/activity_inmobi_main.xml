@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.inmobi.ads"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.idroi.mysecurity.InmobiMainActivity">
+
+    <com.inmobi.ads.InMobiBanner
+        android:id="@+id/banner"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        ads:placementId="1476641918677"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="interstitial_ad"
+        android:id="@+id/inmobi_interstitial_button"
+        android:onClick="onClick"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nativead"
+        android:id="@+id/inmobi_native_button"
+        android:onClick="onClick"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/inmobi_interstitial_button"
+        android:layout_alignStart="@+id/inmobi_interstitial_button"
+        android:layout_alignRight="@+id/inmobi_interstitial_button"
+        android:layout_alignEnd="@+id/inmobi_interstitial_button" />
+
+</RelativeLayout>
