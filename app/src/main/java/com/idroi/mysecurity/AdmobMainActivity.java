@@ -12,7 +12,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
-public class AdmobMainActivity extends AppCompatActivity {
+public class AdmobMainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private AdView mBanner = null;
     private InterstitialAd mInterstitialAd = null;
@@ -26,6 +26,9 @@ public class AdmobMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admob_main);
+        findViewById(R.id.admob_intetstitialad).setOnClickListener(this);
+        findViewById(R.id.admob_nativead).setOnClickListener(this);
+
         adinit();
     }
 
@@ -81,8 +84,8 @@ public class AdmobMainActivity extends AppCompatActivity {
         });
     }
 
-
-    protected void onClick(View button){
+    @Override
+    public void onClick(View button){
         int id  = button.getId();
         if(id == R.id.admob_intetstitialad){
             if(mInterstitialAd == null){

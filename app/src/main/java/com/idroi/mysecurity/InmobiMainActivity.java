@@ -3,6 +3,7 @@ package com.idroi.mysecurity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.inmobi.ads.InMobiAdRequestStatus;
@@ -12,7 +13,7 @@ import com.inmobi.sdk.InMobiSdk;
 
 import java.util.Map;
 
-public class InmobiMainActivity extends AppCompatActivity {
+public class InmobiMainActivity extends AppCompatActivity implements View.OnClickListener{
 
     InMobiInterstitial interstitial= null;
 
@@ -20,7 +21,13 @@ public class InmobiMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inmobi_main);
+
+        findViewById(R.id.inmobi_interstitial_button).setOnClickListener(this);
+        findViewById(R.id.inmobi_native_button).setOnClickListener(this);
         InMobiSdk.init(this, "df70fe7e97474f4d9f96d166b1b3434f"); //'this' is used sp
+        Log.d("zzb","inmobi ad init");
+        initAd();
+        createInterstitial();
     }
 
     protected void initAd(){
@@ -30,19 +37,21 @@ public class InmobiMainActivity extends AppCompatActivity {
 
     protected void createInterstitial(){
         // ‘this’ is used to specify context, replace it with the appropriate context as needed.
-        interstitial = new InMobiInterstitial(this, 1474868184256L,new InMobiInterstitial.InterstitialAdListener2(){
+//        1474868184256
+        interstitial = new InMobiInterstitial(this, 1477676934812L,new InMobiInterstitial.InterstitialAdListener(){
             @Override
             public void onAdLoadFailed(InMobiInterstitial inMobiInterstitial, InMobiAdRequestStatus inMobiAdRequestStatus) {
-
+                Log.d("zzb","inmobi onAdLoadFailed");
             }
 
-            @Override
-            public void onAdReceived(InMobiInterstitial inMobiInterstitial) {
-
-            }
+//            @Override
+//            public void onAdReceived(InMobiInterstitial inMobiInterstitial) {
+//                Log.d("zzb","inmobi onAdReceived");
+//            }
 
             @Override
             public void onAdLoadSucceeded(InMobiInterstitial inMobiInterstitial) {
+                Log.d("zzb","inmobi onAdLoadSucceeded");
 
             }
 
@@ -51,18 +60,19 @@ public class InmobiMainActivity extends AppCompatActivity {
 
             }
 
-            @Override
-            public void onAdDisplayFailed(InMobiInterstitial inMobiInterstitial) {
-
-            }
-
-            @Override
-            public void onAdWillDisplay(InMobiInterstitial inMobiInterstitial) {
-
-            }
+//            @Override
+//            public void onAdDisplayFailed(InMobiInterstitial inMobiInterstitial) {
+//
+//            }
+//
+//            @Override
+//            public void onAdWillDisplay(InMobiInterstitial inMobiInterstitial) {
+//
+//            }
 
             @Override
             public void onAdDisplayed(InMobiInterstitial inMobiInterstitial) {
+                Log.d("zzb","inmobi onAdDisplayed");
 
             }
 
@@ -73,6 +83,7 @@ public class InmobiMainActivity extends AppCompatActivity {
 
             @Override
             public void onAdDismissed(InMobiInterstitial inMobiInterstitial) {
+                Log.d("zzb","inmobi onAdDismissed");
 
             }
 
@@ -85,8 +96,9 @@ public class InmobiMainActivity extends AppCompatActivity {
         interstitial.load();
     }
 
-    protected void onClick(View view){
-        int id = view.getId();
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
         if(id ==  R.id.inmobi_interstitial_button){
             if(interstitial.isReady()){
                 interstitial.show();

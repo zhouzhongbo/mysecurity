@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:text="interstitial_ad"
         android:id="@+id/inmobi_interstitial_button"
-        android:onClick="onClick"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="73dp" />
@@ -32,7 +31,6 @@
         android:layout_height="wrap_content"
         android:text="nativead"
         android:id="@+id/inmobi_native_button"
-        android:onClick="onClick"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/inmobi_interstitial_button"
         android:layout_alignStart="@+id/inmobi_interstitial_button"

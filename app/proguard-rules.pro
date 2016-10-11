@@ -15,16 +15,3 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{
-	public *;
-}
-
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{
-	public *;
-}
-
--keep class com.inmobi.**{
-    *;
-}
-
--dontwarn
